@@ -1,7 +1,7 @@
 self.addEventListener('fetch', function(event) {
-    event.respondWith(
-        new Response('<strong class="a-winner-is-me"> Hello! We are sending customized response.</strong>',{
-                headers:{'Content-Type': 'text/html'}
-        })
-    );
-});
+    if (event.request.url.endsWith('.jpg')) {
+        event.respondWith(
+            fetch('/imgs/dr-evil.gif')
+        );
+    }    
+})
